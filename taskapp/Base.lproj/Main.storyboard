@@ -18,9 +18,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1AT-yq-WWw">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="キーワードを入力してください。" id="wla-gP-Wa4">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="xlz-hB-0JG" detailTextLabel="uQk-mx-3gG" style="IBUITableViewCellStyleSubtitle" id="wy6-pg-9K4">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                        <rect key="frame" x="0.0" y="72" width="414" height="55.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wy6-pg-9K4" id="27a-xk-lsE">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
@@ -63,6 +68,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="wla-gP-Wa4" id="2gH-ho-CjS"/>
                         <outlet property="tableView" destination="1AT-yq-WWw" id="A1b-0i-JOS"/>
                         <segue destination="70J-bL-yhK" kind="show" identifier="cellSegue" id="912-cK-DfE"/>
                     </connections>
@@ -79,13 +85,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohs-L4-DLH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohs-L4-DLH">
                                 <rect key="frame" x="10" y="172.5" width="394" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vE5-Go-6FW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vE5-Go-6FW">
                                 <rect key="frame" x="10" y="98" width="394" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -113,16 +119,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4a-Ky-Vff">
+                                <rect key="frame" x="10" y="466" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VGm-tX-WOC">
+                                <rect key="frame" x="10" y="497" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="T4a-Ky-Vff" firstAttribute="leading" secondItem="pod-VS-qeL" secondAttribute="leading" constant="10" id="3Ov-9J-yTl"/>
                             <constraint firstItem="pod-VS-qeL" firstAttribute="trailing" secondItem="qgL-OC-Adv" secondAttribute="trailing" constant="10" id="40c-ia-muk"/>
                             <constraint firstItem="YKa-oO-GLg" firstAttribute="trailing" secondItem="pod-VS-qeL" secondAttribute="trailing" id="59Y-25-Pgc"/>
                             <constraint firstItem="qgL-OC-Adv" firstAttribute="top" secondItem="ohs-L4-DLH" secondAttribute="bottom" constant="10" id="Ahw-RJ-97f"/>
                             <constraint firstItem="pod-VS-qeL" firstAttribute="trailing" secondItem="ohs-L4-DLH" secondAttribute="trailing" constant="10" id="Aq7-7O-XxZ"/>
+                            <constraint firstItem="pod-VS-qeL" firstAttribute="trailing" secondItem="VGm-tX-WOC" secondAttribute="trailing" constant="10" id="GfS-RY-E66"/>
                             <constraint firstItem="YKa-oO-GLg" firstAttribute="top" secondItem="qgL-OC-Adv" secondAttribute="bottom" constant="10" id="HaT-Sv-bMl"/>
                             <constraint firstItem="vE5-Go-6FW" firstAttribute="top" secondItem="pod-VS-qeL" secondAttribute="top" constant="10" id="HrP-6L-AV7"/>
                             <constraint firstItem="ohs-L4-DLH" firstAttribute="leading" secondItem="pod-VS-qeL" secondAttribute="leading" constant="10" id="Nbu-7S-PVy"/>
+                            <constraint firstItem="VGm-tX-WOC" firstAttribute="top" secondItem="T4a-Ky-Vff" secondAttribute="bottom" constant="10" id="OrF-b6-YvQ"/>
                             <constraint firstItem="pod-VS-qeL" firstAttribute="trailing" secondItem="vE5-Go-6FW" secondAttribute="trailing" constant="10" id="Roj-fC-kUN"/>
                             <constraint firstItem="8sv-xR-7Uu" firstAttribute="leading" secondItem="pod-VS-qeL" secondAttribute="leading" constant="10" id="abs-C4-NmU"/>
                             <constraint firstItem="pod-VS-qeL" firstAttribute="trailing" secondItem="8sv-xR-7Uu" secondAttribute="trailing" constant="10" id="gDM-LE-yxt"/>
@@ -130,12 +150,16 @@
                             <constraint firstItem="qgL-OC-Adv" firstAttribute="leading" secondItem="pod-VS-qeL" secondAttribute="leading" constant="10" id="iJD-1c-Yeq"/>
                             <constraint firstItem="ohs-L4-DLH" firstAttribute="top" secondItem="8sv-xR-7Uu" secondAttribute="bottom" constant="10" id="jai-OB-KRE"/>
                             <constraint firstItem="YKa-oO-GLg" firstAttribute="leading" secondItem="pod-VS-qeL" secondAttribute="leading" id="tVj-7J-w2h"/>
+                            <constraint firstItem="VGm-tX-WOC" firstAttribute="leading" secondItem="pod-VS-qeL" secondAttribute="leading" constant="10" id="tqq-Zw-vc9"/>
+                            <constraint firstItem="T4a-Ky-Vff" firstAttribute="top" secondItem="YKa-oO-GLg" secondAttribute="bottom" constant="12.5" id="uAK-13-zqe"/>
                             <constraint firstItem="vE5-Go-6FW" firstAttribute="leading" secondItem="pod-VS-qeL" secondAttribute="leading" constant="10" id="whV-wq-Tjb"/>
+                            <constraint firstItem="pod-VS-qeL" firstAttribute="trailing" secondItem="T4a-Ky-Vff" secondAttribute="trailing" constant="10" id="zgS-Na-Z2a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pod-VS-qeL"/>
                     </view>
                     <navigationItem key="navigationItem" id="c43-o4-4DW"/>
                     <connections>
+                        <outlet property="categoryTextField" destination="VGm-tX-WOC" id="rHl-OC-LEl"/>
                         <outlet property="contentsTextView" destination="qgL-OC-Adv" id="Isk-V4-05Y"/>
                         <outlet property="datePicker" destination="YKa-oO-GLg" id="VdH-fk-hBS"/>
                         <outlet property="titleTextFIeld" destination="8sv-xR-7Uu" id="Jua-Ly-5QG"/>
@@ -165,6 +189,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="912-cK-DfE"/>
+        <segue reference="fNE-6y-Vk1"/>
     </inferredMetricsTieBreakers>
 </document>
